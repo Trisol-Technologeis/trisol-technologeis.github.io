@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://trisol-technologeis.github.io/obanaf-apps-studio/sitemap.xml
+Sitemap: https://trisol-technologeis.github.io/sitemap.xml
