@@ -64,12 +64,12 @@
   grid.innerHTML = APPS.map((a, i) => {
     const big = i < 2;
     const meta = [
+      `<span class="card-tag">${a.category}</span>`,
       a.rating ? `<span><b>${a.rating.toFixed(1)}★</b> ${a.reviews} reviews</span>` : "",
       `<span><b>${a.downloads}</b> downloads</span>`
     ].join("");
-    const shots = [1, 2, 3].map(n => `<img src="${img(a.id, "s" + n)}" alt="${esc(a.title)} screenshot ${n}" loading="lazy" decoding="async" width="422" height="900">`).join("");
+    const shots = [1, 2, 3].map(n => `<img src="${img(a.id, "s" + n)}" alt="${esc(a.title)} screenshot ${n}" loading="lazy" decoding="async" width="${a.shotW}" height="900">`).join("");
     return `<article class="card${big ? " big" : ""}" style="--hue:${a.hue}" data-cat="${a.category}" data-id="${a.id}" tabindex="0" role="button" aria-label="View ${esc(a.title)} details">
-      <span class="card-tag">${a.category}</span>
       <div class="card-top"><img class="card-icon" src="${img(a.id, "icon")}" alt="" width="64" height="64" loading="lazy">
         <div><h3 class="card-title">${esc(a.title)}</h3><div class="card-sub">${esc(a.native)}</div></div></div>
       <p class="card-desc">${esc(a.tagline)}</p>
@@ -113,14 +113,15 @@
         ${a.rating ? stat(a.rating.toFixed(1) + "★", a.reviews + " reviews") : stat("New", "Fresh release")}
         ${stat(a.downloads, "Downloads")}${stat(a.category, "Category")}${stat("Free", "In-app extras")}
       </div>
-      <div class="sh-shots">${Array.from({ length: a.shots }, (_, n) => `<img src="${img(a.id, "s" + (n + 1))}" alt="${esc(a.title)} screenshot ${n + 1}" loading="lazy" decoding="async">`).join("")}</div>
+      <div class="sh-shots">${Array.from({ length: a.shots }, (_, n) => `<img src="${img(a.id, "s" + (n + 1))}" alt="${esc(a.title)} screenshot ${n + 1}" loading="lazy" decoding="async" width="${a.shotW}" height="900">`).join("")}</div>
       <div class="sh-grid">
         <div><p>${esc(a.tagline)}</p>
           <a class="play-badge" href="${playUrl(a.id)}" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#00d7fe" d="M3.6 1.8 13.8 12 3.6 22.2a1.6 1.6 0 0 1-.6-1.3V3.1c0-.5.2-1 .6-1.3Z"/><path fill="#ffce00" d="m18.8 9.2 3.2 1.8c.9.5.9 1.6 0 2.1l-3.2 1.8-2.8-2.9 2.8-2.8Z"/><path fill="#ff3a44" d="m14.9 13.1 2.6 2.6-11.9 6.8 9.3-9.4Z"/><path fill="#00f076" d="m5.6 1.5 11.9 6.8-2.6 2.6-9.3-9.4Z"/></svg>
             <span><small>Get it on</small><b>Google Play</b></span></a></div>
         <ul class="sh-feats">${a.features.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
-      </div>`;
+      </div>
+      <nav class="sh-legal" aria-label="Legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms & Conditions</a><a href="cloud-data.html">Cloud & Google data</a><a href="cloud-data.html#delete">Delete my data</a></nav>`;
     sheet.showModal();
     $(".sheet-body", sheet).scrollTop = 0;
     document.body.style.overflow = "hidden";
@@ -143,7 +144,7 @@
   const showcaseItems = [];
   for (let n = 1; n <= 3; n++) APPS.forEach(a => { if (n <= a.shots) showcaseItems.push([a, n + 1 <= a.shots ? n + 1 : n]); });
   track.innerHTML = showcaseItems.slice(0, 18).map(([a, n]) =>
-    `<figure class="sc-item"><img src="${img(a.id, "s" + n)}" alt="${esc(a.title)} screen" loading="lazy" decoding="async" width="422" height="900">
+    `<figure class="sc-item"><img src="${img(a.id, "s" + n)}" alt="${esc(a.title)} screen" loading="lazy" decoding="async" width="${a.shotW}" height="900">
       <figcaption><img src="${img(a.id, "icon")}" alt="" width="22" height="22" loading="lazy">${esc(a.title)}</figcaption></figure>`).join("");
   const showcase = $("#showcase"), bar = $("#showcaseBar");
   const desktopPin = matchMedia("(min-width: 761px)");

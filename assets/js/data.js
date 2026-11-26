@@ -13,9 +13,10 @@ window.SITE = {
   ]
 };
 
+/* shotW = screenshot width in px at 900px height, so images keep their true shape */
 window.APPS = [
   {
-    id: "com.ethiopian.calender.converter",
+    id: "com.ethiopian.calender.converter", shotW: 422,
     title: "Ethiopian Calendar",
     native: "ቀን መቁጠሪያ",
     category: "Productivity",
@@ -24,7 +25,7 @@ window.APPS = [
     rating: 5.0, reviews: 709, downloads: "100K+", shots: 8, featured: true, hue: "#2bb673"
   },
   {
-    id: "com.ob.aimathsolver.scan.solve",
+    id: "com.ob.aimathsolver.scan.solve", shotW: 422,
     title: "AI Math Solver",
     native: "With Solution",
     category: "Education",
@@ -33,7 +34,7 @@ window.APPS = [
     rating: 3.4, reviews: 115, downloads: "10K+", shots: 8, featured: true, hue: "#7c5cff"
   },
   {
-    id: "com.nepalipatro.nepalicalendar",
+    id: "com.nepalipatro.nepalicalendar", shotW: 422,
     title: "Nepali Patro",
     native: "नेपाली पात्रो",
     category: "Productivity",
@@ -42,7 +43,7 @@ window.APPS = [
     rating: 5.0, reviews: 37, downloads: "5K+", shots: 6, featured: true, hue: "#e5484d"
   },
   {
-    id: "com.persian.calendar",
+    id: "com.persian.calendar", shotW: 422,
     title: "Persian Calendar",
     native: "تقویم فارسی",
     category: "Productivity",
@@ -51,7 +52,7 @@ window.APPS = [
     rating: 5.0, reviews: 49, downloads: "5K+", shots: 5, hue: "#f5a524"
   },
   {
-    id: "com.ts.smart.printer.scanner.mobile.printshare",
+    id: "com.ts.smart.printer.scanner.mobile.printshare", shotW: 506,
     title: "Smart Printer App",
     native: "Mobile Print",
     category: "Tools",
@@ -60,7 +61,7 @@ window.APPS = [
     downloads: "500+", shots: 6, hue: "#0ea5e9"
   },
   {
-    id: "com.hd.camera.photo.android",
+    id: "com.hd.camera.photo.android", shotW: 506,
     title: "HD Camera Beauty",
     native: "& Filter",
     category: "Photography",
@@ -69,7 +70,7 @@ window.APPS = [
     downloads: "100+", shots: 6, hue: "#ec4899"
   },
   {
-    id: "com.ob.pose.camera.photo.guide",
+    id: "com.ob.pose.camera.photo.guide", shotW: 416,
     title: "Pose Camera",
     native: "Photo Guide",
     category: "Photography",
@@ -78,7 +79,7 @@ window.APPS = [
     downloads: "100+", shots: 5, hue: "#f97316"
   },
   {
-    id: "com.ob.dress.ai.tryon.fashion",
+    id: "com.ob.dress.ai.tryon.fashion", shotW: 416,
     title: "Dress AI",
     native: "AI Try On",
     category: "Lifestyle",
@@ -87,7 +88,7 @@ window.APPS = [
     downloads: "10+", shots: 5, hue: "#a855f7"
   },
   {
-    id: "com.ob.aigiftfinder.wishlist",
+    id: "com.ob.aigiftfinder.wishlist", shotW: 416,
     title: "AI Gift Finder",
     native: "Wishlist",
     category: "Shopping",
